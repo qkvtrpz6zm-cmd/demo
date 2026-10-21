@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>新疆维吾尔自治区产教融合管理服务平台</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="dashboard.js" defer></script>
+</head>
+<body>
+  <main id="dashboard" aria-label="新疆产业与人才供需静态数据大屏">
+    <img class="decoration" src="assets/02-chrome/full-decoration-plate.png" alt="" draggable="false">
+    <header>
+      <h1>新疆维吾尔自治区产教融合管理服务平台</h1>
+      <nav aria-label="平台导航">
+        <span class="nav-item nav-one active" aria-current="page">全疆重点产业分析</span>
+        <span class="nav-item nav-two">全疆重点产业人才供给</span>
+        <span class="nav-item nav-three">供需对接服务</span>
+        <span class="nav-item nav-four">专业人才供需分析</span>
+      </nav>
+    </header>
+    <section id="overview" aria-label="全疆产业概况"></section>
+    <section class="panel enterprises" aria-labelledby="enterprise-heading">
+      <h2 id="enterprise-heading"><i></i>全疆企业数量分布</h2>
+      <div id="enterprise-chart" role="img" aria-label="企业数量分布柱状图，部分行业名称待确认"></div>
+      <div class="scroll-rail enterprise-rail"><b></b></div>
+    </section>
+    <section class="panel output" aria-labelledby="output-heading">
+      <h2 id="output-heading"><i></i>产业产值分布</h2>
+      <div id="output-chart" role="img" aria-label="软件和信息相关产业，名称待确认，产值4537.78亿元"></div>
+      <div class="scroll-rail output-rail"><b></b></div>
+    </section>
+    <section class="map-area" aria-labelledby="map-heading">
+      <h2 id="map-heading"><i></i>产业结构密度分析</h2>
+      <img class="map-image" src="assets/03-map/map-with-orbit.png" alt="新疆区域与轨道视觉示意图，非权威地理边界" draggable="false">
+      <div class="map-toolbar">
+        <span class="filter static-control">按产业筛选<span class="arrow"></span></span>
+        <div class="map-mode"><span class="selected">企业数量显示</span><span>企业产值显示</span></div>
+      </div>
+      <div id="map-labels" aria-label="地区企业数量，数据按效果图录入，待原稿核验"></div>
+    </section>
+    <section class="panel talent" aria-labelledby="talent-heading">
+      <h2 id="talent-heading"><i></i>未来3–5年人才需求</h2>
+      <span class="algorithm">1⌁ 算法解析</span>
+      <div id="talent-table"></div>
+      <div class="scroll-rail talent-rail"><b></b></div>
+    </section>
+    <section class="panel jobs" aria-labelledby="jobs-heading">
+      <h2 id="jobs-heading"><i></i>岗位需求分布</h2>
+      <div id="jobs-table"></div>
+      <div class="scroll-rail jobs-rail"><b></b></div>
+      <div class="pagination" aria-label="静态分页示意"><span>共 21861 条</span><span class="page">‹</span><span class="page current">1</span><span class="page">2</span><span class="page">3</span><span class="page">…</span><span class="page last">2187</span><span class="page">›</span></div>
+    </section>
+    <section id="demands" aria-label="产教融合需求"></section>
+  </main>
+</body>
+</html>

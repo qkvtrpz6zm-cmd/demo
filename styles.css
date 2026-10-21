@@ -1,0 +1,79 @@
+:root { color-scheme: dark; font-family: 'Noto Sans CJK SC', 'Microsoft YaHei', sans-serif; color: #eef5ff; background: #020d20; }
+* { box-sizing: border-box; }
+html, body { margin: 0; width: 100%; height: 100%; overflow: hidden; }
+body { display: grid; place-items: center; background: #010915; }
+#dashboard { position: absolute; width: 1672px; height: 941px; overflow: hidden; transform-origin: top left; background: url('assets/01-background/background.png') center/100% 100%; }
+.decoration { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+h1, h2, p { margin: 0; }
+h1 { position: absolute; left: 510px; top: 5px; width: 650px; font-size: 29px; font-weight: 900; letter-spacing: 3px; font-style: italic; text-align: center; color: #ecfaff; text-shadow: 0 2px 2px #4581a2, 0 0 15px #1674c3; white-space: nowrap; }
+.nav-item { position: absolute; top: 30px; color: #458cce; font-size: 19px; letter-spacing: 1px; font-weight: 900; font-style: italic; white-space: nowrap; }
+.nav-one { left: 59px; }.nav-two { left: 277px; }.nav-three { left: 1251px; }.nav-four { left: 1453px; }
+.nav-item.active { color: #eaf8ff; text-shadow: 0 0 7px #4cafff; }
+.panel { position: absolute; z-index: 3; }
+.enterprises { left: 14px; top: 94px; width: 391px; height: 317px; }
+.output { left: 1282px; top: 94px; width: 377px; height: 317px; }
+.talent { left: 14px; top: 435px; width: 391px; height: 420px; }
+.jobs { left: 1282px; top: 435px; width: 377px; height: 422px; }
+h2 { position: absolute; top: 8px; left: 26px; height: 32px; display: flex; align-items: center; gap: 15px; font-size: 20px; font-weight: 900; font-style: italic; letter-spacing: 2px; text-shadow: 0 0 8px #4c97dd; white-space: nowrap; }
+h2 i { display: inline-block; width: 15px; height: 15px; border: 1px solid #1193b9; transform: rotate(45deg); box-shadow: 0 0 6px #0c99ca; flex-shrink: 0; }
+h2 i::after { content: ''; position: absolute; inset: 3px; background: #f5d627; box-shadow: 0 0 5px #c9e95d; }
+.metric { position: absolute; top: 83px; height: 83px; display: flex; align-items: flex-start; }
+.icon-stack { position: relative; width: 104px; height: 90px; flex: 0 0 104px; }
+.icon-stack img { position: absolute; width: 116px; height: 90px; left: -6px; top: -1px; object-fit: fill; }
+.icon-stack .icon-subject { z-index: 1; }
+.metric-copy { padding-top: 12px; white-space: nowrap; margin-left: -3px; }
+.metric-value { font-family: sans-serif; font-size: 27px; line-height: 32px; font-weight: 500; letter-spacing: -1px; transform: scaleX(.8); transform-origin: left center; }
+.metric-label { font-size: 13px; line-height: 24px; color: #e0e7f6; }
+.metric:last-child .metric-label { font-size: 12px; }
+.metric .icon-base { top: -7px; }
+#enterprise-chart { position: absolute; left: 17px; top: 63px; width: 351px; height: 243px; }
+svg { width: 100%; height: 100%; overflow: visible; font-family: 'Noto Sans CJK SC', sans-serif; }
+.chart-label { fill: #dce8ff; font-size: 12px; }
+.chart-value { fill: #00f5ff; font-family: 'Liberation Sans Narrow', sans-serif; font-size: 14px; font-weight: 600; }
+.chart-axis { fill: #e4eafa; font-size: 12px; }
+.pending-svg { fill: #92b5ce; font-size: 8px; }
+.scroll-rail { position: absolute; width: 6px; background: #071b3e; border: 1px solid #446087; box-shadow: inset 0 0 2px #6586a7; }
+.scroll-rail b { display: block; width: 100%; background: linear-gradient(#d4eaff, #1764be 10%, #0a4b9c 90%, #d3faff); border-radius: 3px; }
+.enterprise-rail { right: 14px; top: 72px; height: 211px; }.enterprise-rail b { height: 92px; }
+.output-rail { right: 7px; top: 72px; height: 211px; }.output-rail b { height: 6px; }
+#output-chart { position: absolute; left: 15px; top: 68px; width: 346px; height: 237px; }
+.map-area { position: absolute; left: 419px; top: 174px; width: 850px; height: 630px; z-index: 1; }
+.map-area h2 { left: 32px; top: 7px; }
+.map-image { position: absolute; left: -119px; top: 34px; width: 1050px; height: 630px; pointer-events: none; }
+.map-toolbar { position: absolute; left: 33px; right: 15px; top: 61px; display: flex; justify-content: space-between; align-items: center; z-index: 2; }
+.filter { width: 159px; height: 36px; display: flex; align-items: center; justify-content: space-between; padding: 0 15px; color: #b8dcf6; border: 1px solid #00a7ff; border-radius: 3px; background: linear-gradient(#063267, #00132e 55%, #03487c); box-shadow: inset 0 0 6px #008ee8, 0 0 10px #0067aa; font-size: 15px; }
+.arrow { border-left: 6px solid transparent; border-right: 6px solid transparent; border-top: 7px solid #00efff; }
+.map-mode { display: flex; gap: 3px; margin-top: -8px; }
+.map-mode span { padding: 6px 13px; border: 1px solid #125794; border-radius: 3px; font-size: 13px; color: #adc9ed; background: #01152f; }
+.map-mode .selected { border-color: #00daff; color: #fff; background: linear-gradient(#006dc2, #002872 65%, #007cc4); box-shadow: inset 0 0 8px #00bbff, 0 0 10px #0092ed; font-weight: bold; }
+#map-labels { position: absolute; inset: 0; z-index: 1; pointer-events: none; }
+.map-label { position: absolute; display: inline-flex; align-items: baseline; gap: 3px; padding: 1px 4px 2px; height: 25px; white-space: nowrap; font-size: 12px; line-height: 20px; background: linear-gradient(180deg, #073963ed, #001938ed); border: 1px solid #2783ca; border-radius: 3px; box-shadow: 0 0 3px #0095ef, inset 0 0 3px #043f76; text-shadow: 0 0 3px #4b99ff; font-weight: 600; }
+.map-label strong { color: #ffdc00; font-size: 14px; letter-spacing: -.7px; font-family: sans-serif; text-shadow: 0 0 3px #796618; }
+.map-label small { font-size: 9px; font-weight: 400; color: #b5c5d7; }
+.algorithm { position: absolute; right: 12px; top: 9px; border: 1px solid #00a2ff; border-radius: 4px; height: 30px; width: 85px; font-size: 12px; font-weight: 800; display: grid; place-items: center; background: linear-gradient(#007fe4, #0431a3); box-shadow: inset 0 0 6px #0eaeff, 0 0 5px #005ba8; }
+#talent-table, #jobs-table { position: absolute; top: 53px; left: 11px; right: 6px; }
+table { width: 100%; border-collapse: collapse; table-layout: fixed; font-size: 12px; line-height: 1.15; text-align: left; }
+th { background: #05294d; height: 31px; color: #88b6e0; font-weight: 500; text-align: left; }
+th, td { padding: 0 12px; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+td { height: 31.5px; font-weight: 500; }
+tbody tr:nth-child(even) { background: #03223d9c; }
+tbody tr:nth-child(odd) { background: #00152c85; }
+td.number { color: #ff9f00; font-family: 'Liberation Sans Narrow', sans-serif; font-size: 14px; font-weight: 600; }
+td.ratio { color: #00f0f7; font-family: 'Liberation Sans Narrow', sans-serif; font-size: 14px; }
+.talent th, .talent td { padding-left: 12px; padding-right: 3px; }
+.jobs th, .jobs td { padding-left: 11px; padding-right: 2px; }
+.talent-rail, .jobs-rail { border: 0; width: 4px; right: 9px; top: 91px; height: 308px; background: repeating-linear-gradient(#08608c 0 3px, transparent 3px 10px); }
+.talent-rail b { height: 178px; background: #0082cd; }.jobs-rail b { height: 93px; background: #0082cd; }
+.pagination { position: absolute; right: 5px; bottom: 7px; display: flex; align-items: center; gap: 4px; font-size: 13px; }
+.pagination > span:first-child { margin-right: 3px; }
+.page { height: 23px; min-width: 22px; padding: 1px 5px; text-align: center; border: 1px solid #135282; border-radius: 3px; background: #042344; }
+.page.current { background: #009cf2; border-color: #18d9ff; box-shadow: inset 0 0 4px #57bbff; }.page.last { font-size: 12px; }
+.demand { position: absolute; top: 799px; width: 205px; height: 94px; display: flex; align-items: flex-start; z-index: 4; }
+.demand .icon-stack { width: 104px; height: 100px; flex-basis: 104px; }
+.demand .icon-stack img { width: 151px; height: 110px; left: -25px; top: -6px; }
+.demand .icon-stack .icon-base { top: -12px; }
+.demand .metric-copy { padding-top: 10px; }
+.demand .metric-value { font-size: 31px; }
+.demand .metric-label { font-size: 16px; }
+.demand:first-child .metric-value { color: #ffc42d; }
+.demand:not(:last-child)::after { content: ''; position: absolute; right: -9px; top: 30px; height: 50px; width: 1px; background: linear-gradient(transparent, #74c7ff 40%, #1b669c); }
