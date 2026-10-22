@@ -77,3 +77,40 @@ td.ratio { color: #00f0f7; font-family: 'Liberation Sans Narrow', sans-serif; fo
 .demand .metric-label { font-size: 16px; }
 .demand:first-child .metric-value { color: #ffc42d; }
 .demand:not(:last-child)::after { content: ''; position: absolute; right: -9px; top: 30px; height: 50px; width: 1px; background: linear-gradient(transparent, #74c7ff 40%, #1b669c); }
+
+/* 蓝紫科技动效：不移动底图、文字标题、图标底座与地图。 */
+.circuit-effects, .orbit-effects { position:absolute; inset:0; width:1672px; height:941px; pointer-events:none; overflow:visible; }
+.circuit-effects { z-index:6; }
+.circuit-effects path { fill:none; stroke-linecap:round; }
+.circuit-run, .circuit-halo { stroke:#49eaff; stroke-width:1.7; stroke-dasharray:45 955; animation:circuit-flow var(--circuit-time) linear infinite; animation-delay:var(--phase); }
+.circuit-halo { stroke-width:5; opacity:.7; filter:url(#circuit-glow); }
+.circuit-run.violet { stroke:#a277ff; stroke-dasharray:28 972; animation-direction:reverse; opacity:.9; }
+.circuit-node { fill:#c4f6ff; filter:drop-shadow(0 0 4px #36ccff); animation:node-blink 3.2s ease-in-out infinite; }
+.orbit-effects { z-index:0; left:-419px; top:-174px; }
+.map-image { z-index:1; }
+#map-labels { z-index:3; }
+.orbit-track { fill:none; stroke:#4587ff; stroke-width:.7; opacity:.15; }
+.orbit-pulse { fill:none; stroke:#69eaff; stroke-width:2; stroke-dasharray:28 470 2 500; filter:drop-shadow(0 0 5px #248bff); animation:orbit-flow 34s linear infinite; opacity:.8; }
+.orbit-purple { stroke:#9b6cff; stroke-width:1.6; stroke-dasharray:45 955; animation-duration:46s; animation-direction:reverse; opacity:.65; }
+.icon-subject { animation:icon-float 4s infinite; will-change:transform; }
+.icon-base { transform:none; }
+.table-scroll-viewport { height:315px; overflow:hidden; }
+.jobs .table-scroll-viewport { height:283.5px; }
+.table-scroll-track, .chart-scroll-track { animation:content-scroll var(--scroll-time) linear infinite; will-change:transform; }
+.table-scroll-track table { height:auto; }
+.fixed-table-head { position:relative; z-index:1; }
+.panel:hover .table-scroll-track, .panel:hover .chart-scroll-track { animation-play-state:paused; }
+@keyframes circuit-flow { to { stroke-dashoffset:-1000; } }
+@keyframes orbit-flow { to { stroke-dashoffset:-1000; } }
+@keyframes node-blink { 0%,100% { opacity:.3; } 45% { opacity:1; } 65% { opacity:.55; } }
+@keyframes icon-float {
+  0%,100% { transform:translateY(0); animation-timing-function:cubic-bezier(.22,.68,.32,1); }
+  42% { transform:translateY(-8px); animation-timing-function:cubic-bezier(.55,0,.75,.5); }
+  72% { transform:translateY(1.5px); animation-timing-function:ease-out; }
+  86% { transform:translateY(-1px); animation-timing-function:ease-in; }
+}
+@keyframes content-scroll { to { transform:translateY(var(--scroll-distance)); } }
+@media (prefers-reduced-motion:reduce) {
+ .circuit-effects *, .orbit-effects *, .icon-subject, .table-scroll-track, .chart-scroll-track { animation:none !important; }
+ .circuit-node { opacity:.65; }
+}
