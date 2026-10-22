@@ -40,3 +40,30 @@
   track.style.setProperty('--scroll-time',selector.includes('talent')?'35s':'32s');
  }
 })();
+
+// KPI 数字加载：一次性由 0 递增至原值，不轮播或改写业务数据。
+(() => {
+ const preference = matchMedia('(prefers-reduced-motion: reduce)');
+ const values = [...document.querySelectorAll('#overview .metric-value, #demands .metric-value')].map((el, index) => {
+  const text = el.textContent.trim();
+  el.setAttribute('aria-label', text);
+  return { el, text, target: Number(text.replace(/,/g, '')), decimals: (text.split('.')[1] || '').length, delay: index * 80 };
+ });
+ let frame;
+ const finish = () => { cancelAnimationFrame(frame); values.forEach(({el,text}) => el.textContent = text); };
+ preference.addEventListener('change', event => { if (event.matches) finish(); });
+ if (preference.matches) return;
+ values.forEach(({el,decimals}) => el.textContent = (0).toFixed(decimals));
+ const start = performance.now();
+ function tick(now) {
+  let active = false;
+  for (const item of values) {
+   const progress = Math.min(1, Math.max(0, (now - start - item.delay) / 2400));
+   const eased = 1 - Math.pow(1 - progress, 3);
+   item.el.textContent = progress === 1 ? item.text : (Math.floor(item.target * eased * 10 ** item.decimals) / 10 ** item.decimals).toFixed(item.decimals);
+   if (progress < 1) active = true;
+  }
+  if (active) frame = requestAnimationFrame(tick);
+ }
+ frame = requestAnimationFrame(tick);
+})();

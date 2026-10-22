@@ -114,3 +114,5 @@ td.ratio { color: #00f0f7; font-family: 'Liberation Sans Narrow', sans-serif; fo
  .circuit-effects *, .orbit-effects *, .icon-subject, .table-scroll-track, .chart-scroll-track { animation:none !important; }
  .circuit-node { opacity:.65; }
 }
+/* 等宽数字避免加载时横向抖动。 */
+.metric-value { font-variant-numeric: tabular-nums; }
